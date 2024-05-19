@@ -1,3 +1,3 @@
-import system
-import utils
-import bake_texture
+from . import system
+from . import utils
+from . import bake_texture
