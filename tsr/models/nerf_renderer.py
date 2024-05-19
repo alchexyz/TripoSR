@@ -49,11 +49,10 @@ class TriplaneNeRFRenderer(BaseModule):
 
         # positions in (-radius, radius)
         # normalized to (-1, 1) for grid sample
-        print(positions.device)
         positions = scale_tensor(
             positions, (-self.cfg.radius, self.cfg.radius), (-1, 1)
         )
-        print(positions.device)
+
         def _query_chunk(x):
             indices2D: torch.Tensor = torch.stack(
                 (x[..., [0, 1]], x[..., [0, 2]], x[..., [1, 2]]),
