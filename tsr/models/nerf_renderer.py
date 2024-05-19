@@ -52,6 +52,7 @@ class TriplaneNeRFRenderer(BaseModule):
         positions = scale_tensor(
             positions, (-self.cfg.radius, self.cfg.radius), (-1, 1)
         )
+        print(triplane.device)
 
         def _query_chunk(x):
             indices2D: torch.Tensor = torch.stack(
